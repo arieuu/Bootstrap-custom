@@ -1,0 +1,23 @@
+// custom variables
+$primary: red;
+
+
+// Adding new custom colors
+
+// We import the existing bs code after the variables we defined. so that our custom code is recognized
+
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
+
+// We create a map with the new colors
+$custom-theme-colors: (
+    "mar": blue,
+    "punc": purple,
+);
+
+// Now we merge the existing color map with our custom one so that all of them are available to us
+
+$theme-colors: map-merge($custom-theme-colors , $theme-colors); // The order doesn't matter
+
+// Importing bootstrap at last
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
